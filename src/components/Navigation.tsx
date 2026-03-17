@@ -19,8 +19,10 @@ export default function Navigation() {
 
   const navLinks = [
     { label: 'About', id: 'pitch' },
+    { label: 'Journey', id: 'journey' },
     { label: 'Character', id: 'specs' },
     { label: 'Values', id: 'features' },
+    { label: 'Day', id: 'day' },
     { label: 'Interests', id: 'interests' },
   ]
 

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { profile } from '../data/profile'
 import IslamicPattern from './IslamicPattern'
 
-const words = ['Introducing', profile.name + '.']
+const words = ['Assalamu Alaikum,', profile.name + '.']
 
 const orbs = [
   { size: 500, x: '10%', y: '20%', color: 'rgba(201,162,39,0.18)', blur: 80, duration: 8 },
@@ -147,7 +147,7 @@ export default function Hero() {
         >
           <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#C9A227', display: 'inline-block', animation: 'pulse 2s infinite' }} />
           <span style={{ fontSize: '13px', fontWeight: 500, color: 'rgba(255,255,255,0.75)', letterSpacing: '0.04em' }}>
-            {profile.profession} · {profile.location}
+            {profile.profession} · {profile.location} · {profile.background}
           </span>
         </motion.div>
 
@@ -202,7 +202,7 @@ export default function Hero() {
             lineHeight: 1.4,
           }}
         >
-          {profile.heroSubtitle}
+          {profile.tagline}
         </motion.p>
 
         <motion.p
@@ -213,9 +213,11 @@ export default function Hero() {
             fontSize: 'clamp(15px, 2vw, 18px)',
             color: 'rgba(255,255,255,0.35)',
             marginBottom: '56px',
+            maxWidth: '740px',
+            marginInline: 'auto',
           }}
         >
-          {profile.taglineSub}
+          {profile.heroSubtitle} {profile.taglineSub}
         </motion.p>
 
         {/* CTA Buttons */}
