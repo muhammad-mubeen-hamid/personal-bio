@@ -65,6 +65,7 @@ export default function Journey() {
               background: 'linear-gradient(to bottom, #C9A227 0%, #E8C547 45%, #1B6B3A 100%)',
               transformOrigin: 'top',
               borderRadius: '2px',
+              zIndex: 0,
             }}
           />
 
@@ -84,6 +85,8 @@ export default function Journey() {
                 gap: '24px',
                 alignItems: 'flex-start',
                 marginBottom: '28px',
+                position: 'relative',
+                zIndex: 1,
               }}
             >
               <div
@@ -92,9 +95,9 @@ export default function Journey() {
                   minWidth: '62px',
                   height: '62px',
                   borderRadius: '50%',
-                  background: 'rgba(255,255,255,0.08)',
+                  background: '#0F2419',
                   border: `2px solid ${milestone.future ? 'rgba(232,197,71,0.6)' : 'rgba(201,162,39,0.3)'}`,
-                  boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
+                  boxShadow: '0 0 0 8px #0F2419, 0 8px 20px rgba(0,0,0,0.2)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',

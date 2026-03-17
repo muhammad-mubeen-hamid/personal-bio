@@ -16,7 +16,7 @@ export default function Hero() {
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const scrollDown = () => {
-    document.getElementById('pitch')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('intent')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   // Parallax on scroll
@@ -257,7 +257,7 @@ export default function Hero() {
             {profile.connect.ctaText}
           </a>
           <button
-            onClick={() => document.getElementById('pitch')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('intent')?.scrollIntoView({ behavior: 'smooth' })}
             style={{
               background: 'rgba(255,255,255,0.08)',
               color: '#fff',
