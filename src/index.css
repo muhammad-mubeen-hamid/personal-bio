@@ -1,0 +1,166 @@
+/* =============================================
+   GLOBAL STYLES — Islamic design system
+   Deep forest green + gold palette
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors — Islamic palette */
+  --bg: #FFFDF5;                         /* warm ivory/parchment */
+  --bg-dark: #0F2419;                    /* deep forest green */
+  --bg-darker: #071410;                  /* near-black forest */
+  --bg-warm: #FFF8ED;                    /* warm amber ivory */
+  --white: #FFFFFF;
+  --text: #1A2E1A;                       /* dark forest text */
+  --text-muted: #6B7C6B;                 /* muted sage */
+  --text-light: #A0B0A0;                 /* light sage */
+  --border: rgba(15, 36, 25, 0.08);
+  --border-light: rgba(201, 162, 39, 0.15);  /* gold border on dark */
+
+  /* Accent — Islamic gold */
+  --accent-start: #C9A227;               /* warm gold */
+  --accent-end: #E8C547;                 /* bright gold */
+  --accent-gradient: linear-gradient(135deg, #C9A227, #E8C547);
+  --accent-green: #1B6B3A;              /* emerald green */
+  --accent-warm: #C9A227;
+
+  /* Islamic-specific tokens */
+  --green-deep: #0F2419;
+  --green-mid: #1B6B3A;
+  --green-light: #2D9B5A;
+  --gold-primary: #C9A227;
+  --gold-light: #E8C547;
+  --gold-pale: rgba(201, 162, 39, 0.12);
+
+  /* Typography */
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  --font-arabic: 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
+
+  /* Spacing */
+  --section-pad: clamp(80px, 12vw, 140px);
+  --container: 1200px;
+  --gutter: clamp(20px, 5vw, 48px);
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shadows — green-tinted */
+  --shadow-sm: 0 2px 8px rgba(15, 36, 25, 0.06);
+  --shadow-md: 0 8px 32px rgba(15, 36, 25, 0.08);
+  --shadow-lg: 0 20px 60px rgba(15, 36, 25, 0.12);
+  --shadow-xl: 0 32px 80px rgba(15, 36, 25, 0.16);
+
+  /* Radii */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Selection — gold tint */
+::selection {
+  background: rgba(201, 162, 39, 0.18);
+  color: var(--text);
+}
+
+/* Container */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Section label (eyebrow text) — gold */
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* Gradient text — gold */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Islamic / Arabic text utility */
+.arabic-text {
+  font-family: var(--font-arabic);
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 253, 245, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.glass-dark {
+  background: rgba(15, 36, 25, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 162, 39, 0.12);
+}
