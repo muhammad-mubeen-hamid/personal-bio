@@ -1,5 +1,6 @@
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
+import Journey from './components/Journey'
 import ThePitch from './components/ThePitch'
 import TechSpecs from './components/TechSpecs'
 import Features from './components/Features'
@@ -16,6 +17,8 @@ function App() {
       <main>
         <Hero />
         <IslamicDivider variant="dark" />
+        <Journey />
+        <IslamicDivider variant="light" />
         <ThePitch />
         <IslamicDivider variant="light" />
         <TechSpecs />

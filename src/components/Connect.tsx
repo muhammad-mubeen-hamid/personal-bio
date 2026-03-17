@@ -1,8 +1,9 @@
+import type { ElementType } from 'react'
 import { motion } from 'framer-motion'
-import { Instagram, Linkedin, Twitter } from 'lucide-react'
+import { Instagram, Linkedin, Mail, Twitter } from 'lucide-react'
 import { profile } from '../data/profile'
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, ElementType> = {
   Instagram,
   LinkedIn: Linkedin,
   Twitter,
@@ -10,6 +11,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function Connect() {
   const { connect } = profile
+  const hasSocials = connect.socials.length > 0
 
   return (
     <section
@@ -185,65 +187,98 @@ export default function Connect() {
               </motion.a>
             </motion.div>
 
-            {/* Divider */}
+            {/* Email */}
             <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              whileInView={{ opacity: 1, scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              style={{
-                width: '60px',
-                height: '1px',
-                background: 'rgba(255,255,255,0.15)',
-                margin: '0 auto 40px',
-              }}
-            />
-
-            {/* Social links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.55 }}
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '16px',
-                flexWrap: 'wrap',
-              }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              style={{ marginBottom: hasSocials ? '40px' : '0' }}
             >
-              {connect.socials.map((social, i) => {
-                const Icon = iconMap[social.platform]
-                return (
-                  <motion.a
-                    key={i}
-                    href={social.url}
-                    whileHover={{
-                      y: -4,
-                      background: 'rgba(255,255,255,0.12)',
-                      transition: { duration: 0.2 },
-                    }}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      background: 'rgba(255,255,255,0.07)',
-                      border: '1px solid rgba(255,255,255,0.1)',
-                      borderRadius: '100px',
-                      padding: '10px 20px',
-                      color: 'rgba(255,255,255,0.65)',
-                      fontSize: '14px',
-                      fontWeight: 500,
-                      textDecoration: 'none',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {Icon && <Icon size={16} />}
-                    {social.handle}
-                  </motion.a>
-                )
-              })}
+              <a
+                href={`mailto:${connect.email}`}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: 'rgba(255,255,255,0.07)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  borderRadius: '100px',
+                  padding: '10px 18px',
+                  color: 'rgba(255,255,255,0.78)',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                }}
+              >
+                <Mail size={16} />
+                {connect.email}
+              </a>
             </motion.div>
+
+            {hasSocials && (
+              <>
+                {/* Divider */}
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  whileInView={{ opacity: 1, scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.56 }}
+                  style={{
+                    width: '60px',
+                    height: '1px',
+                    background: 'rgba(255,255,255,0.15)',
+                    margin: '0 auto 40px',
+                  }}
+                />
+
+                {/* Social links */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.6 }}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '16px',
+                    flexWrap: 'wrap',
+                  }}
+                >
+                  {connect.socials.map((social, i) => {
+                    const Icon = iconMap[social.platform]
+                    return (
+                      <motion.a
+                        key={i}
+                        href={social.url}
+                        whileHover={{
+                          y: -4,
+                          background: 'rgba(255,255,255,0.12)',
+                          transition: { duration: 0.2 },
+                        }}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          background: 'rgba(255,255,255,0.07)',
+                          border: '1px solid rgba(255,255,255,0.1)',
+                          borderRadius: '100px',
+                          padding: '10px 20px',
+                          color: 'rgba(255,255,255,0.65)',
+                          fontSize: '14px',
+                          fontWeight: 500,
+                          textDecoration: 'none',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {Icon && <Icon size={16} />}
+                        {social.handle}
+                      </motion.a>
+                    )
+                  })}
+                </motion.div>
+              </>
+            )}
           </div>
         </motion.div>
 

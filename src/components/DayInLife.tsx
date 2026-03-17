@@ -194,7 +194,7 @@ export default function DayInLife() {
             fontStyle: 'italic',
           }}
         >
-          Schedule may vary ±2 hours. Fajr, however, is non-negotiable.
+          {profile.timelineNote || 'Schedule may vary a little, but the intention stays consistent.'}
         </motion.p>
       </div>
     </section>
