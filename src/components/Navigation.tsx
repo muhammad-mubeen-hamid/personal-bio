@@ -18,7 +18,7 @@ export default function Navigation() {
   }
 
   const navLinks = [
-    { label: 'About', id: 'pitch' },
+    { label: 'About', id: 'intent' },
     { label: 'Journey', id: 'journey' },
     { label: 'Character', id: 'specs' },
     { label: 'Values', id: 'features' },

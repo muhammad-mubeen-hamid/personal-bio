@@ -27,11 +27,11 @@ function highlightText(text: string, highlight: string) {
 const spring = { ease: 'easeOut' as const, duration: 0.8 }
 
 export default function ThePitch() {
-  const { pitch } = profile
+  const { intent } = profile
 
   return (
     <section
-      id="pitch"
+      id="intent"
       style={{
         background: '#FFFDF5',
         padding: 'clamp(80px, 12vw, 140px) 0',
@@ -46,7 +46,7 @@ export default function ThePitch() {
           transition={spring}
           style={{ textAlign: 'center', marginBottom: '80px' }}
         >
-          <span className="section-label">The Pitch</span>
+          <span className="section-label">Intentions</span>
           <h2
             style={{
               fontSize: 'clamp(36px, 6vw, 72px)',
@@ -58,9 +58,9 @@ export default function ThePitch() {
               margin: '0 auto',
             }}
           >
-            Thoughtfully built.
+            Clarity over games.
             <br />
-            <span style={{ color: '#6B7C6B', fontWeight: 300 }}>Entirely sincere.</span>
+            <span style={{ color: '#6B7C6B', fontWeight: 300 }}>Serious about marriage.</span>
           </h2>
         </motion.div>
 
@@ -93,7 +93,7 @@ export default function ThePitch() {
                 padding: 0,
               }}
             >
-              &ldquo;{highlightText(pitch.quote, pitch.highlight)}&rdquo;
+              &ldquo;{highlightText(intent.quote, intent.highlight)}&rdquo;
             </blockquote>
 
             <motion.p
@@ -138,15 +138,15 @@ export default function ThePitch() {
                   color: '#1D1D1F',
                   letterSpacing: '-0.01em',
                 }}
-              >
-                {pitch.callout}
+                >
+                {intent.callout}
               </span>
             </motion.div>
           </motion.div>
 
           {/* Right: Stats */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {pitch.stats.map((stat, i) => (
+            {intent.stats.map((stat, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, x: 40 }}
@@ -179,7 +179,8 @@ export default function ThePitch() {
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
-                    minWidth: '80px',
+                    minWidth: '4ch',
+                    flexShrink: 0,
                   }}
                 >
                   {stat.value}
