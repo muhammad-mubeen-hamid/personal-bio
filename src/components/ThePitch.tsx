@@ -146,57 +146,62 @@ export default function ThePitch() {
 
           {/* Right: Stats */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {intent.stats.map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.2 + i * 0.12,
-                  ease: 'easeOut',
-                }}
-                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                style={{
-                  background: '#F5F8F5',
-                  border: '1px solid rgba(15,36,25,0.08)',
-                  borderRadius: '20px',
-                  padding: '28px 32px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '24px',
-                  cursor: 'default',
-                }}
-              >
-                <div
+            {intent.stats.map((stat, i) => {
+              const isWordValue = stat.value.length > 4
+
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.2 + i * 0.12,
+                    ease: 'easeOut',
+                  }}
+                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   style={{
-                    fontSize: 'clamp(40px, 6vw, 64px)',
-                    fontWeight: 700,
-                    letterSpacing: '-0.035em',
-                    lineHeight: 1,
-                    background: 'linear-gradient(135deg, #C9A227, #E8C547)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    minWidth: '4ch',
-                    flexShrink: 0,
+                    background: '#F5F8F5',
+                    border: '1px solid rgba(15,36,25,0.08)',
+                    borderRadius: '20px',
+                    padding: '28px 32px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '24px',
+                    cursor: 'default',
                   }}
                 >
-                  {stat.value}
-                </div>
-                <div
-                  style={{
-                    fontSize: '17px',
-                    color: '#86868B',
-                    fontWeight: 400,
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
+                  <div
+                    style={{
+                      fontSize: isWordValue ? 'clamp(22px, 3.5vw, 34px)' : 'clamp(40px, 6vw, 64px)',
+                      fontWeight: 700,
+                      letterSpacing: isWordValue ? '-0.01em' : '-0.035em',
+                      lineHeight: isWordValue ? 1.12 : 1,
+                      textTransform: 'uppercase',
+                      background: 'linear-gradient(135deg, #C9A227, #E8C547)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      minWidth: isWordValue ? '8ch' : '4ch',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '17px',
+                      color: '#86868B',
+                      fontWeight: 400,
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {stat.label}
+                  </div>
+                </motion.div>
+              )
+            })}
 
             {/* Extra fun fact card */}
             <motion.div
@@ -213,8 +218,8 @@ export default function ThePitch() {
             >
               <div style={{ fontSize: '28px', marginBottom: '8px' }}>🤲</div>
               <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>
-                Seeking a partner to build something beautiful —{' '}
-                <span style={{ color: '#E8C547', fontWeight: 600 }}>for this dunya and the next</span>
+                I hope, whatever happens, wherever this leads us, is for the best, for the both of us —{' '}
+                <span style={{ color: '#E8C547', fontWeight: 600 }}>for this world and the next</span>
                 .
               </div>
             </motion.div>

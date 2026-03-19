@@ -40,7 +40,7 @@ export default function DayInLife() {
               fontWeight: 300,
             }}
           >
-            A glimpse into what barakah looks like on a Tuesday.
+            A glimpse into what my average day looks like and by no mean a perfect representation of my life. Things happen, plans change, you adjust, and you move on.
           </p>
         </motion.div>
 
